@@ -110,12 +110,10 @@ evx_status entropy_coder::encode_symbol(uint8 value)
 
     if (value) 
     {
-        /* 1 - use upper range. */
         low = mid + 1;		
     } 
     else 
     {
-        /* 0 - use lower range. */
         high = mid;			  
     }
 
