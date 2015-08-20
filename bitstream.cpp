@@ -233,7 +233,11 @@ evx_status bitstream::write_bits(void *data, uint32 bit_count)
     if (bits_copied < bit_count) 
     {
         /* Perform unaligned copies of our data. */
-        bits_copied += unaligned_bit_copy(data_store, write_index + bits_copied, source, bits_copied, bit_count - bits_copied);
+        bits_copied += unaligned_bit_copy(data_store, 
+                                          write_index + bits_copied, 
+                                          source, 
+                                          bits_copied, 
+                                          bit_count - bits_copied);
     }
 
     write_index += bits_copied;
@@ -349,7 +353,11 @@ evx_status bitstream::read_bits(void *data, uint32 *bit_count)
     /* Perform unaligned copies of our data. */
     if (bits_copied < (*bit_count)) 
     {
-        bits_copied += unaligned_bit_copy(dest, bits_copied, data_store, read_index + bits_copied, (*bit_count) - bits_copied);
+        bits_copied += unaligned_bit_copy(dest, 
+                                          bits_copied, 
+                                          data_store, 
+                                          read_index + bits_copied, 
+                                          (*bit_count) - bits_copied);
     }
 
     read_index += bits_copied;
