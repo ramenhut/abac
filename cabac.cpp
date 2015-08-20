@@ -34,7 +34,7 @@ entropy_coder::entropy_coder()
 
     e3_count = 0;
     adaptive = 1;
-    model	= EVX_ENTROPY_HALF_RANGE;
+    model = EVX_ENTROPY_HALF_RANGE;
     value = 0;
 
     low = 0;
@@ -219,7 +219,7 @@ evx_status entropy_coder::resolve_encode_scaling(bitstream *dest)
         }
 
         high = ((high << 0x1) & EVX_ENTROPY_PRECISION_MAX) | 0x1;
-        low  = ((low  << 0x1) & EVX_ENTROPY_PRECISION_MAX) | 0x0;
+        low = ((low  << 0x1) & EVX_ENTROPY_PRECISION_MAX) | 0x0;
     }
 
     return EVX_SUCCESS;
@@ -271,7 +271,7 @@ evx_status entropy_coder::resolve_decode_scaling(uint32 *value, bitstream *sourc
         }
 
         high = ((high << 0x1) & EVX_ENTROPY_PRECISION_MAX) | 0x1;
-        low	= ((low  << 0x1) & EVX_ENTROPY_PRECISION_MAX) | 0x0;
+        low = ((low  << 0x1) & EVX_ENTROPY_PRECISION_MAX) | 0x0;
         *value = ((*value << 0x1) & EVX_ENTROPY_PRECISION_MAX) | bit;
     }
 
