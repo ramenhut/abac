@@ -18,7 +18,7 @@ uint32 aligned_bit_copy(uint8 *dest, uint32 dest_bit_offset, uint8 *source, uint
         }
     }
 
-    uint32 dest_byte_offset	= dest_bit_offset >> 3;
+    uint32 dest_byte_offset = dest_bit_offset >> 3;
     uint32 source_byte_offset = source_bit_offset >> 3;
     uint32 bytes_copied	= copy_bit_count >> 3;
 
