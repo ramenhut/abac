@@ -53,7 +53,6 @@
     #define EVX_PLATFORM_WINDOWS                          // building a Windows application
 #elif defined (__APPLE__)
     #include "TargetConditionals.h"
-    #import "Foundation/Foundation.h"
     #include "unistd.h"
     #include "sys/types.h"
     #include "ctype.h"
@@ -102,6 +101,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "stdarg.h"
+#include "string.h"
 
 /**********************************************************************************
 //

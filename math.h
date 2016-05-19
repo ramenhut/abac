@@ -109,30 +109,24 @@ inline uint8 log2(uint32 value)
 
 inline int8 abs(int8 value) 
 {
-    if (0x80 == value) 
-    {
-        return 0x7F;
-    }
+    if (value == EVX_MIN_INT8)
+        return EVX_MAX_INT8;
 
     return (value < 0 ? -value : value);
 }
 
 inline int16 abs(int16 value) 
 {
-    if (0x1000 == value) 
-    {
-        return 0x7FFF;
-    }
+    if (value == EVX_MIN_INT16)
+        return EVX_MAX_INT16;
 
     return (value < 0 ? -value : value);
 }
 
 inline int32 abs(int32 value) 
 {
-    if (0x10000000 == value) 
-    {
-        return 0x7FFFFFFF;
-    }
+    if (value == EVX_MIN_INT32)
+        return EVX_MAX_INT32;
 
     return (value < 0 ? -value : value);
 }
