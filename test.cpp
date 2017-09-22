@@ -46,7 +46,8 @@ void test_basic_cabac_rt()
     evx_msg("test completed successfully.");
 }
 
-void main() 
+int main() 
 {
     test_basic_cabac_rt();
+	return 0;
 }

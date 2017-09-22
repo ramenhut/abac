@@ -62,6 +62,10 @@
     #elif TARGET_OS_MAC
         #define EVX_PLATFORM_MACOSX                           // building a Mac OSX application
     #endif
+#elif defined (__linux__)
+	#include "unistd.h"
+	#include "stdint.h"
+	#define EVX_PLATFORM_LINUX                            // building a Linux application	
 #else
     #error "Unsupported target platform detected."
 #endif
@@ -82,7 +86,7 @@
         #define debug_break __debugbreak
     #endif
     #define __EVX_FUNCTION__  __FUNCTION__
-#elif defined (EVX_PLATFORM_IOS) || defined (EVX_PLATFORM_MACOSX)
+#elif defined (EVX_PLATFORM_IOS) || defined (EVX_PLATFORM_MACOSX) || defined (EVX_PLATFORM_LINUX)
    #ifdef DEBUG
        #define EVX_DEBUG DEBUG
        #if !defined(debug_break)
@@ -130,7 +134,17 @@ namespace evx {
     typedef u_int64_t uint64;	    
     typedef u_int32_t uint32;	    
     typedef u_int16_t uint16;	    
-    typedef u_int8_t uint8;	 
+    typedef u_int8_t uint8;
+#elif defined (EVX_PLATFORM_LINUX)
+	typedef int64_t int64;
+	typedef int32_t int32;
+	typedef int16_t int16;
+	typedef int8_t int8;
+
+	typedef uint64_t uint64;
+	typedef uint32_t uint32;
+	typedef uint16_t uint16;
+	typedef uint8_t uint8;
 #endif
 
 typedef float float32;         
